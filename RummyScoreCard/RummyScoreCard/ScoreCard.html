@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="Content/styles/reset.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="Scripts/knockout-2.2.1.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'/>
+    <link href="Content/styles/styles.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="container">
+        <div id="playing-cards">
+            <div id="collections">
+                <img id="3ofclubs" src="Content/images/cards/3ofclubs.png" />
+                <img id="3ofdiamonds" src="Content/images/cards/3ofdiamonds.png" />
+                <img id="3ofhearts" src="Content/images/cards/3ofhearts.png" />
+                <img id="3ofspades" src="Content/images/cards/3ofspades.png" />
+                <img id="4ofclubs" src="Content/images/cards/4ofclubs.png" />
+                <img id="4ofdiamonds" src="Content/images/cards/4ofdiamonds.png" />
+                <img id="4ofhearts" src="Content/images/cards/4ofhearts.png" />
+                <img id="4ofspades" src="Content/images/cards/4ofspades.png" />
+                <img id="5ofclubs" src="Content/images/cards/5ofclubs.png" />
+                <img id="5ofdiamonds" src="Content/images/cards/5ofdiamonds.png" />
+                <img id="5ofhearts" src="Content/images/cards/5ofhearts.png" />
+                <img id="5ofspades" src="Content/images/cards/5ofspades.png" />
+                <img id="joker" src="Content/images/cards/joker.png" />
+            </div>
+            <div id="runs">
+                <img id="7ofClubs" src="Content/images/cards/7ofClubs.png" />
+                <img id="8ofClubs" src="Content/images/cards/8ofClubs.png" />
+                <img id="9ofclubs" src="Content/images/cards/9ofclubs.png" />
+                <img id="10ofclubs" src="Content/images/cards/10ofclubs.png" />
+                <img id="jackofclubs" src="Content/images/cards/jackofclubs.png" />
+            </div>
+        </div>
+        <div id="header-scores-container">
+            <div id="header">
+                <p id="status-text"><strong data-bind="text: currentRound"></strong><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong><strong data-bind="text: roundTitle"></strong></p>
+                <ul>
+                    <li><a href="*" data-bind="click: addPlayer">
+                        <img class="control-button" title="Add Player" src="Content/images/128234-simple-red-square-icon-alphanumeric-plus-sign-simple.png" /></a></li>
+                    <li><a href="*" data-bind="click: nextRound">
+                        <img class="control-button" title="Next Round" src="Content/images/red arrow icon.png" /></a></li>
+                    <li id="header-title">
+                        <p>This Round</p>
+                    </li>
+                    <li id="header-title-last">
+                        <p>Score</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div id="scores">
+                <!-- ko foreach: players -->
+                <ul>
+                    <li>
+                        <input class="name-input" data-bind="value: name" /></li>
+                    <li>
+                        <input data-bind="value: roundScore" /></li>
+                    <li>
+                        <input readonly="true" data-bind="value: score" /></li>
+                    <li><a href="#" data-bind="click: $root.removePlayer">
+                        <img title="Remove Player" class="remove-player" src="Content/images/rebelius-minus-sign.png" /></a></li>
+                </ul>
+                <!-- /ko -->
+            </div>
+        </div>
+        <div id="previous-rounds">
+            <table id="results-table">
+                
+            </table>
+            
+                <div id="reset-container">
+                    <a data-bind="click: nextRound"><h2>Play Again?</h2></a>
+                </div>
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="Scripts/scoreCard.js"></script>
+</body>
+</html>
